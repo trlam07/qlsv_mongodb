@@ -1,0 +1,53 @@
+<h1>Danh sách đăng ký môn học</h1>
+<a href="/register/create" class="btn btn-info">Add</a>
+<%- include('../search.ejs')%>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Mã SV</th>
+      <th>Tên SV</th>
+      <th>Mã MH</th>
+      <th>Tên MH</th>
+      <th>Điểm</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% registers.forEach((register, index) => { %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= register.student_id%></td>
+      <td><%= register.student_name%></td>
+      <td><%= register.subject_id%></td>
+      <td><%= register.subject_name%></td>
+      <td><%= register.score%></td>
+
+      <td>
+        <a
+          class="btn btn-warning btn-sm"
+          href="/register/edit/<%= register.id %>"
+          >Sửa</a
+        >
+      </td>
+      <td>
+        <button
+          type="button"
+          data-href="/register/destroy/<%= register.id %>"
+          class="btn btn-danger btn-sm destroy"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Xóa
+        </button>
+      </td>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
+<!-- import pagination -->
+<%- include('../pagination.ejs')%>
+<div>
+  <span>Số lượng: <%=registers.length%></span>
+</div>

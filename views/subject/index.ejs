@@ -1,0 +1,44 @@
+<h1>Danh sách môn học</h1>
+			<a href="/subject/create" class="btn btn-info">Add</a>
+			<%- include('../search.ejs')%>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Mã MH</th>
+						<th>Tên</th>
+						<th>Số tín chỉ</th>
+						<th colspan="2">Tùy Chọn</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% subjects.forEach((subject, index) => {
+						%><tr>
+							<td>
+								<%= index + 1 %>
+							</td>
+							<td>
+								<%= subject.id %>
+							</td>
+							<td>
+								<%= subject.name %>
+							</td>
+							<td>
+								<%= subject.number_of_credits %>
+							</td>
+							
+							<td><a class="btn btn-warning btn-sm" href="/subject/edit/<%= subject.id %>">Sửa</a></td>
+							<td>
+								<button type="button" data-href="/subject/destroy/<%= subject.id %>"class="btn btn-danger btn-sm destroy" data-toggle="modal" data-target="#exampleModal">
+									Xóa
+								</button>
+							</td>
+						</tr><%
+					})%>
+				</tbody>
+			</table>
+			<!-- import pagination -->
+			<%- include('../pagination.ejs')%>
+			<div>
+				<span>Số lượng: <%=subjects.length%></span>
+			</div>

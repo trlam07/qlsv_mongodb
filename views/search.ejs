@@ -1,0 +1,11 @@
+<%
+let path = `/${module}`;
+if(module == 'student') {
+    path = '/';
+}
+%>
+<form action="<%= path%>" method="GET">
+    <label class="form-inline justify-content-end">Tìm kiếm: <input type="search" name="search" class="form-control" value="<%= search%>">
+    <button class="btn btn-danger">Tìm</button>
+    </label>
+</form>

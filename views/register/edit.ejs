@@ -1,0 +1,26 @@
+<h1>Cập nhật điểm</h1>
+<form action="/register/update" method="POST" class="form-register-edit">
+  <input type="hidden" name="id" value="<%= register.id%>" />
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label>Tên sinh viên</label>
+          <span><%= register.student_name%></span>
+        </div>
+        <div class="form-group">
+          <label>Tên môn học</label>
+          <span><%= register.subject_name%></span>
+        </div>
+        <div class="form-group">
+          <label for="score">Điểm</label>
+          <input type="text" class="form-control" name="score" id="score" value="<%= register.score%>" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" type="submit">Lưu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
